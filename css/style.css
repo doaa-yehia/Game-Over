@@ -1,0 +1,247 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Cursive;
+    src: url(../webfonts/Cedarville-Cursive.woff) format(woff)
+         url(../webfonts/Cedarville-Cursive.woff2) format(woff2)
+         url(../webfonts/Cedarville-Cursive.ttf) format(type true);
+}
+@font-face {
+    font-family: NunitoSans;
+    src: url(../webfonts/NunitoSans7ptCondensed-Regular.woff) format(woff)
+         url(../webfonts/NunitoSans7ptCondensed-Regular.woff2) format(woff2)
+         url(../webfonts/NunitoSans7ptCondensed-Regular.ttf) format(type true);
+}
+
+
+:root{
+    --mainColor:#1E202B;
+    --secondery-color:#3A497B;
+    --third-color: #009AD8;
+    /* --secondery-color-rgb:0, 154, 216; */
+    --textColor:rgb(255, 255, 255);
+    --textColor-rgb:255, 255, 255;
+
+    /* bootstrap overriding */
+    --bs-body-bg: #24353F;
+    --bs-body-color:#fff;
+    --bs-link-hover-color-rgb:var(--secondery-color-rgb);
+    --textColor-rgb:0, 154, 216;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+    --bs-border-color:transparent;    /* --bs-emphasis-color-rgb: 0, 154, 216; */
+}
+body,
+html {
+   
+    
+    font-family: Cursive;
+    h1{
+        /* font-family: NunitoSans; */
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    background-color: var(--mainColor);
+    color: var(--textColor);
+}
+
+
+/* start Header */
+header img{
+    max-height: 30vh;
+    object-fit: cover;
+}
+/* end Header */
+
+/* start games section */
+nav .container{
+    background-color: var(--secondery-color);
+    /* margin-top: -30px; */
+    position: relative;
+    top: -10px;
+}
+.nav-item a{
+    font-size: 0.7656rem;
+}
+.navbar-toggler{
+    position: relative;
+    width: 1.875rem;
+    height: 1.25rem;
+    transition: .5s ease-in-out;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+.navbar-toggler span{
+    margin: 0;
+    padding: 0;
+}
+
+.toggler-icon{
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 0.1875rem;
+    border-radius: 0.0625rem;
+   
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+.middle-bar{
+    margin-top: 0rem;
+}
+.navbar-toggler .top-bar{
+    margin-top: 0rem;
+    transform: rotate(135deg);
+}
+.navbar-toggler .middle-bar{
+    opacity: 0;
+    filter: alpha(opacity=0);
+
+}
+.navbar-toggler .bottom-bar{
+    margin-top: 0;
+    transform: rotate(-135deg);
+
+}
+.navbar-toggler.collapsed .top-bar{
+    margin-top: -1.25rem;
+    transform: rotate(0deg);
+
+}
+.navbar-toggler.collapsed .middle-bar{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.navbar-toggler.collapsed .bottom-bar{
+    margin-top: 1.25rem;
+    transform: rotate(0deg);
+}
+.nav-item{
+    margin-inline:0.3125rem ;
+}
+.navbar-nav{
+    --bs-nav-link-color: var(--textColor-rgb);
+    --bs-nav-link-hover-color:rgba(0, 154, 216,1)
+}
+
+.nav-link{
+    transition:border 3s ease-in-out ,all .3s ease-in-out;
+}
+.navbar-nav .nav-link:hover{
+
+}
+
+.navbar-nav .nav-link.active{
+    
+    color: var(--third-color);
+
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: transparent;
+}
+link:hover {
+    color: var(--secondery-color);
+}
+li a{
+    color: var(--textColor);
+}
+/* end navbar */
+
+
+.card{
+    filter: grayscale(75%);
+    overflow: hidden;
+    transition: all .5s ease-in-out ;
+    &:hover{
+        filter: grayscale(0%);
+        transform: scale(1.05);
+    }
+    .card-body{
+        .free-color{
+            background-color: var(--secondery-color);
+        }
+
+        .card-footer{
+           
+        }
+        
+    }
+    .type, .serv{
+        background-color:#32383E;
+    }
+}
+/* end games section */
+/* start loader */
+.loading{
+    background-color: #272B30;
+    opacity: .80;
+    top: 0;
+    left: 0;
+    transition: opacity .75s, visibility .75s;
+    z-index: 9;
+    &::after{
+    content: "";
+    /* position: relative; */
+    width: 100px;
+    height: 100px;
+    border: 2px solid transparent;
+    border-top-color: var(--bs-body-color);
+    border-radius: 50%;
+    /* z-index: 110; */
+    animation: loading .75s infinite;
+}
+    &::before{
+        content: "";
+        position: absolute;
+        /* left: 20px; */
+        /* top: 5px; */
+        width: 90px;
+        height: 90px;
+        border: 2px solid transparent;
+        border-top-color: orange;
+        border-radius: 50%;
+        /* z-index: 110; */
+        animation: loadingLeft .75s infinite;
+    
+    } 
+}
+.loaderHidden{
+    opacity: 0;
+    visibility: hidden;
+    /* z-index: -1; */
+}
+/* } */
+
+#details{
+    z-index: 4;
+}
+
+@keyframes loading {
+    from{transform: rotate(0turn);}
+    to{transform: rotate(1turn);}
+}
+@keyframes loadingLeft {
+    from{transform: rotate(0turn);}
+    to{transform: rotate(-1turn);}
+}
+/* start loader */
+/* @media (max-width: 767px) {
+  
+   
+} */
+
