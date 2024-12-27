@@ -22,6 +22,7 @@ export class Details {
         console.error(error);
     };
     }
+
 }
 
 // const url = 'https://free-to-play-games-database.p.rapidapi.com/api/game?id=452';

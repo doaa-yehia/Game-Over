@@ -8,7 +8,7 @@ let categories = document.querySelectorAll(".categories li a")
 let firstActive=document.querySelector(".first");
 let gameItem=document.getElementById("details")
 
-let home=document.getElementById("home")
+let home=document.getElementById("home");
 export const loader=document.querySelector(".loading");
 
 let gamesApper = new Ui();
@@ -30,7 +30,7 @@ async function getItemData() {
     for (let i = 0; i < items.length; i++) {
         items[i].addEventListener("click", async (e) => {
             
-            let item = new Details(items[i].attributes[2].value);
+            let item = new Details(e.currentTarget.getAttribute("data-id"));
             let itemData = await item.getDetails();
             
 
@@ -48,7 +48,7 @@ async function getItemData() {
 
 async function getFirstData(params){
     
-    let allGames = new Games(params.attributes[1].value);
+    let allGames = new Games(params.getAttribute("data-category"));
     loader.classList.remove("d-none");
     let gamesData = await allGames.getData();
     
